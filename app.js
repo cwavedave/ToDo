@@ -67,7 +67,6 @@ const day = date.getDate();
 /// Something is acting up here when the page needs to reload with the list.
 
 app.get("/", function(req, res) {
-console.log("get '/' active")
   let newListInput = "";
   // Looks in Lists
     List.find({}, function(err, lists){
@@ -92,7 +91,6 @@ console.log("get '/' active")
      }
    });
  } else {
-console.log("Else /get '/' active")
   Item.find({}, function(err, items) {
         res.render("list", {
         listTitle: day,
@@ -259,7 +257,7 @@ List.find({}, function(err, lists){
 // Dynamic custom page List Request
 // Dynamic custom post check
 
-
-app.listen(3000, function() {
+// Allows Heroku to assign a port or run on 3000 if local.
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
