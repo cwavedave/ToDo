@@ -117,7 +117,7 @@ li {
 
 h1 {
   color: #fff;
-  padding: 10px;
+  padding: 5px;
 }
 
 a {
@@ -135,7 +135,6 @@ a {
   padding: 0;
   border:thin transparent solid;
   border-radius: 5px 5px 0 0px;
-  font-variant: small-caps;
 }
 
 .listTitle {
@@ -203,7 +202,6 @@ a {
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
-    margin: auto;
     margin-top: 30px;
     width:90%!important;
    }
@@ -220,7 +218,30 @@ a {
     overflow-y: auto;
     overflow-x: auto;
   }
-}
+
+  #headRise {
+    display: flex;
+  }
+  #sunRiseHead {
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 100px;
+    opacity: .3;
+    margin: 10% 0;
+  }
+
+ #sunrise {
+   width:40%!important;
+   height: auto!important;
+ }
+ #heading {
+   font-size: .8rem!important;
+ }
+
+ .sideMenuFlex {
+   margin-top: 5%;
+}}
 
 @media screen and (min-width: 781px) {
 .sideMenuFlex {
