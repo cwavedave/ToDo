@@ -1,0 +1,71 @@
+<%- include("header") -%>
+
+<div class="wrapper">
+
+  <div class="box" id="boxMain">
+    <section id="heading">
+      <h1 class="listTitle"> <%= listTitle %> </h1>
+      <form class="deleteForm" action="/deleteList" method="post">
+      <button type="submit" name="deleteList" value="TBC" onmouseover="this.innerHTML='Delete List?'"
+      onmouseout="this.innerHTML='X'" id="deleteListButton"value="">X</button>
+      <input type="hidden" name="listName" id="placeholderAdd" value="<%= listTitle %>"> </input>
+      <input type="hidden" name="newListItem" value="<%= newListItems %>">
+    </form>
+
+      </section>
+
+    <% newListItems.forEach(function(item){ %>
+    <form action="/delete" method="post">
+      <div class="item important">
+        <label class="checkbox">
+          <input type="checkbox" name="checkbox" value="<%= item._id%>" onChange="this.form.submit()"></label>
+        <!--  <i id="starPadding" onclick="star(this)" class="fa fa-star"></i> --->
+        <%= item.name %>
+      </div>
+      <input type="hidden" name="listName" id="placeholderAdd" value="<%= listTitle %>"> </input>
+    </form>
+    <%  }) %>
+
+    <form name ="newItemForm" class="item" action="/" method="post" onsubmit="return validateNewItem()">
+      <input type="text" name="newItem" placeholder="Add New Task" autocomplete="off" autofocus>
+      <button type="submit" name="listName" id="submitTask" value="<%= listTitle %>" onsubmit="return validateNewItem()">+</button>
+    </form>
+
+  </div>
+
+  <div class="sideMenuFlex">
+    <section id="listHeading">
+      <h1>Lists</h1>
+      </section>
+      <nav class="nav-item">
+        <% lists.forEach(function(list){ %>
+          <div class="item" onclick="location.href='/<%= list.name %>';" style="cursor: pointer;">
+            <a href="/<%= list.name %>"><%= list.name %></a>
+          </div>
+          <% }) %>
+      </nav>
+      <button class="gradient-btn btn-10" id="myBtn" onclick="focusAddNewList()">
+        <i class="fa fa-list-ul"></i>
+        <span>Add</span>
+      </div>
+    </div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content flexModal">
+    <form name ="listModalForm" class="listModal" id="modalForm" action="/newlist" method="post" onsubmit="return validateNewList()">
+      <input id="addModal" type="text" name="newListInput" placeholder="Add New List" autocomplete="off">
+       <span class="close">&times;</span>
+
+    </form></div>
+
+<script>
+  function focusAddNewList() {
+       document.getElementById("addModal").focus();
+  }
+</script>
+
+<%- include("footer") -%>
