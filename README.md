@@ -1,4 +1,6 @@
 # ToDo
-Node.JS / Express / EJS / MongoDB / Mongoose Learning 
+<h2> Quick Summary </h2> 
+Basic ToDo App with database storage 
 
-Vanilla JS / ES6, no React
+<h2> Languages / Tools Used </h2> 
+Node.JS / ExpressJS / EJS / MongoDB / Mongoose / Vanilla JS / ES6
